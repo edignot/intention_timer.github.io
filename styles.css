@@ -1,12 +1,5 @@
 /* basic setup ---------------------------*/
-
-html, body, div, span, applet, object, iframe, h2, h3, h4, h5, h6,
-p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del,
-dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup,
-tt, var, b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label,
-legend, input, textarea, select, button,table, caption, tbody, tfoot, thead,
-tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer,
-header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -26,7 +19,7 @@ h2 {
   color: #CBC9CF;
   }
 
-  /* -------/* main ------------------------------- */
+  /* main ------------------------------- */
 
 main {
   display: flex;
@@ -36,7 +29,6 @@ main {
 
 .new-activity, .past-activity, .timer {
   background-color: #2B2733;  padding: 20px;
-  height: 100%;    /* auto or 100%? */
   }
 
   /* new activities --------------------------- */
@@ -117,6 +109,8 @@ width: 100%;
   padding: 10px 30px;
   border-radius: 5px;
   font-size: 1.1rem;
+  color: #2B2733;
+  cursor: pointer;
 }
 
 .start {
@@ -127,6 +121,8 @@ input {
   padding: 10px;
   background: #46424D;
   border-bottom: 2px solid #FFF;
+  color: white;
+  font-size: 1rem;
 }
 
 input,label {
