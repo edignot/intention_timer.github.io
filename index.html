@@ -13,6 +13,7 @@
   <header>
     <h1>Intention Timer</h1>
   </header>
+
   <main>
     <section class="new-activity">
       <h2>New activity</h2>
@@ -20,41 +21,64 @@
         <section class="activity-categories">
           <h3>Select a category:</h3>
           <section class="select-category">
+
             <section class="category">
-              <img src="images/study.svg" alt="study" class="category-img">
+              <img class="category-img" src="images/study.svg" alt="study">
+              <img class="category-img active" src="images/study-active.svg" alt="">
               <p>Study</p>
             </section>
+
             <section class="category">
-              <img src="images/meditate.svg" alt="meditate" class="category-img">
+              <img class="category-img" src="images/meditate.svg" alt="meditate">
+              <img class="category-img active" src="images/meditate-active.svg" alt="">
               <p>Meditate</p>
             </section>
+
             <section class="category">
-              <img src="images/exercise.svg" alt="exercise" class="category-img">
+              <img class="category-img" src="images/exercise.svg" alt="exercise">
+              <img class="category-img active" src="images/exercise-active.svg" alt="">
               <p>Exercise</p>
             </section>
+
           </section>
         </section>
         <form class="form" action="index.html" method="post">
           <label for="accomplish">What would you like to accomplish during this time?
           </label>
-          <input type="text" name="accomplish" id="accomplich" placeholder="Your answer" required class="input-accomplish">
+          <input class="input-accomplish" type="text" name="accomplish" id="accomplich" placeholder="Your answer" required>
           <section class="min-sec-flex">
             <div class="min-sec-item">
               <label for="accomplish">Minutes</label>
-              <input type="text" name="minutes" id="minutes" required class="input-min-sec">
+              <input class="input-min-sec" type="text" name="minutes" id="minutes" required>
             </div>
             <div class="min-sec-item">
               <label for="accomplish">Seconds
               </label>
-              <input type="text" name="seconds" id="seconds" required class="input-min-sec">
+              <input class="input-min-sec" type="text" name="seconds" id="seconds" required>
             </div>
           </section>
-          <input type="submit" value="Start Activity" class="start-timer-btn">
+          <input class="btn start" type="submit" value="Start Activity">
         </form>
       </section>
     </section>
+
+    <section class="timer">
+      <h2>Current Activity</h2>
+      <div class="timer-wrapper">
+        <div class="timer-holder">
+          <p class="input-accomplish-label">Deep Breathing</p>
+          <p class="countdown-timer">5:00</p>
+          <div class="start-timer-wrapper">
+            <p class="start-timer">START</p>
+          </div>
+          <input class="log btn" type="text" name="" value="LOG ACTIVITY">
+        </div>
+        <input class="create-new btn" type="text" name="" value="CREATE A NEW ACTIVITY">
+      </div>
+    </section>
+
     <section class="past-activity">
-      <h2>Past activities</h2>
+      <h2>Past Activities</h2>
       <section>
         <p class="past-activity-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
       </section>
