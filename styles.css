@@ -34,25 +34,26 @@ main {
   flex-wrap: wrap;
 }
 
-.new-activity, .past-activity {
+.new-activity, .past-activity, .timer {
   background-color: #2B2733;  padding: 20px;
-  height: auto;    /* auto or 100%? */
+  height: 100%;    /* auto or 100%? */
   }
 
   /* new activities --------------------------- */
 
 .new-activity {
-    width: 60%;  height: 100vh;  /* auto or 100%? */
-  }
+  width: 60%;
+  height: 100vh;  /* auto or 100%? */
+}
 
 .activity-container {
   margin-top: 20px;
   background-color: #46424D;
   width: 100%;
-  height: auto;
   padding: 20px 100px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
+  height: 75vh;
 }
 
 h3 {
@@ -80,6 +81,10 @@ h3 {
 .category-img {
   width: 30px;}
 
+  .active {
+    display: none;
+  }
+
 /* form */
 
 form {
@@ -105,13 +110,17 @@ width: 45%;
 width: 100%;
 }
 
-.start-timer-btn {
+.btn {
   background-color: white;
   margin: 50px 0;
   text-transform: uppercase;
   padding: 10px 30px;
-  order-radius: 5px;
+  border-radius: 5px;
   font-size: 1.1rem;
+}
+
+.start {
+  float: right;
 }
 
 input {
@@ -124,25 +133,94 @@ input,label {
   display: block;
   }
 
+
+  /* timer ------------------------------------------------ */
+
+.timer {
+  width: 60%;
+  height: 100vh;
+  display: none;
+}
+
+.timer-wrapper {
+  margin-top: 20px;
+  background-color: #46424D;
+  width: 100%;
+  padding: 20px 100px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  height: 75vh;
+}
+
+.input-accomplish-label {
+  text-align: center;
+  margin-top: 35px;
+}
+
+.countdown-timer {
+  font-weight: bold;
+  font-size: 100px;
+  text-align: center;
+}
+
+.start-timer-wrapper {
+  width: 200px;
+  height: 200px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.start-timer {
+  padding-top: 45%;
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+}
+
+.log {
+  margin: auto;
+  margin-top: 30px;
+  float: none;
+  text-align: center;
+}
+
+.timer-holder {
+  /* display: none; */
+}
+
+.create-new {
+  float: none;
+  margin: auto;
+  margin-top: 30px;
+  width: 330px;
+  text-align: center;
+  display: none;
+}
+
   /* past activities * ------------------------------------ */
 
-  .past-activity {
-    width: 39.5%;
-    height: 100vh;  /* auto or 100%? */
-    }
+.past-activity {
+  width: 39.5%;
+  height: 100vh;  /* auto or 100%? */
+  }
 
-  .past-activity-message {
-    width: 80%;
-    margin: auto;
-    padding: 30px 0px;
-    text-align: center;
-  /* info ---------------------------------------- */
-  /* Main background: #2B2733
-  Text on main background: #CBC9CF
-  Header, cards: #46424D
-  Card shadow: #26222D
-  Text on header and cards: #FFF
-  Study: #B3FD78
-  Meditate: #C278FD
-  Exercise: #FD8078
-  Error: #EFB7EC */
+.past-activity-message {
+  width: 80%;
+  margin: auto;
+  padding: 30px 0px;
+  text-align: center;
+
+/* info ---------------------------------------- */
+/* Main background: #2B2733
+Text on main background: #CBC9CF
+Header, cards: #46424D
+Card shadow: #26222D
+Text on header and cards: #FFF
+Study: #B3FD78
+Meditate: #C278FD
+Exercise: #FD8078
+Error: #EFB7EC */
