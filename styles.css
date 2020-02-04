@@ -9,33 +9,38 @@
 }
 
 body {
-  background-color: #46424D;  color: #FFF;
-  }
+  background-color: #46424D;
+  color: #FFF;
+}
+
 h1 {
-  text-align: center;  text-transform: uppercase;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 h2 {
   color: #CBC9CF;
-  }
+}
 
-  /* main ------------------------------- */
-
+/* main ------------------------------- */
 main {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.new-activity, .past-activity, .timer {
-  background-color: #2B2733;  padding: 20px;
-  }
+.new-activity,
+.past-activity,
+.timer {
+  background-color: #2B2733;
+  padding: 20px;
+}
 
-  /* new activities --------------------------- */
-
+/* new activities --------------------------- */
 .new-activity {
   width: 60%;
-  height: 100vh;  /* auto or 100%? */
+  height: 100vh;
+  /* auto or 100%? */
 }
 
 .activity-container {
@@ -53,7 +58,6 @@ h3 {
 }
 
 /* select a category */
-
 .select-category {
   margin-top: 20px;
   display: flex;
@@ -68,19 +72,18 @@ h3 {
   border-radius: 5px;
   text-align: center;
   padding: 10px;
-  }
+}
 
 .category-img {
-  width: 30px;}
+  width: 30px;
+}
 
-  .active {
-    display: none;
-  }
+.active {
+  display: none;
+}
 
 /* form */
-
 form {
-  /*display: flex;  flex-direction: column; */
   margin-top: 50px;
 }
 
@@ -91,15 +94,15 @@ form {
 .min-sec-flex {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 
 .min-sec-item {
-width: 45%;
+  width: 45%;
 }
 
 .input-min-sec {
-width: 100%;
+  width: 100%;
 }
 
 .btn {
@@ -125,13 +128,26 @@ input {
   font-size: 1rem;
 }
 
-input,label {
+input,
+label {
   display: block;
-  }
+}
+
+/* form interactivity */
+.warning-message {
+  color: #EFB7EC;
+  position: absolute;
+  margin-top: 10px;
+  display: none;
+}
+
+.warning-img {
+  width: 16px;
+}
 
 
-  /* timer ------------------------------------------------ */
 
+/* timer ------------------------------------------------ */
 .timer {
   width: 60%;
   height: 100vh;
@@ -197,12 +213,12 @@ input,label {
   display: none;
 }
 
-  /* past activities * ------------------------------------ */
-
+/* past activities * ------------------------------------ */
 .past-activity {
   width: 39.5%;
-  height: 100vh;  /* auto or 100%? */
-  }
+  height: 100vh;
+  /* auto or 100%? */
+}
 
 .past-activity-message {
   width: 80%;
@@ -210,8 +226,9 @@ input,label {
   padding: 30px 0px;
   text-align: center;
 
+
 /* info ---------------------------------------- */
-/* Main background: #2B2733
+Main background: #2B2733
 Text on main background: #CBC9CF
 Header, cards: #46424D
 Card shadow: #26222D
