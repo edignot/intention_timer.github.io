@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intention timer</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Intention Timer</h1>
+  </header>
+  <main>
+    <section class="new-activity">
+      <h2>New activity</h2>
+      <section class="activity-container">
+        <section class="activity-categories">
+          <h3>Select a category:</h3>
+          <section class="select-category">
+            <section class="category">
+              <img src="images/study.svg" alt="study" class="category-img">
+              <p>Study</p>
+            </section>
+            <section class="category">
+              <img src="images/meditate.svg" alt="meditate" class="category-img">
+              <p>Meditate</p>
+            </section>
+            <section class="category">
+              <img src="images/exercise.svg" alt="exercise" class="category-img">
+              <p>Exercise</p>
+            </section>
+          </section>
+        </section>
+        <form class="form" action="index.html" method="post">
+          <label for="accomplish">What would you like to accomplish during this time?
+          </label>
+          <input type="text" name="accomplish" id="accomplich" placeholder="Your answer" required class="input-accomplish">
+          <section class="min-sec-flex">
+            <div class="min-sec-item">
+              <label for="accomplish">Minutes</label>
+              <input type="text" name="minutes" id="minutes" required class="input-min-sec">
+            </div>
+            <div class="min-sec-item">
+              <label for="accomplish">Seconds
+              </label>
+              <input type="text" name="seconds" id="seconds" required class="input-min-sec">
+            </div>
+          </section>
+          <input type="submit" value="Start Activity" class="start-timer-btn">
+        </form>
+      </section>
+    </section>
+    <section class="past-activity">
+      <h2>Past activities</h2>
+      <section>
+        <p class="past-activity-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+      </section>
+    </section>
+  </main>
+</body>
 </html>
+<!-- <p class="warning-message">
+<img src="images/warning.svg" alt="warning" class="warning-img">
+A description is required!</p>  -->

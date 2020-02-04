@@ -1,0 +1,148 @@
+/* basic setup ---------------------------*/
+
+html, body, div, span, applet, object, iframe, h2, h3, h4, h5, h6,
+p, blockquote, pre, a, abbr, acronym, address, big, cite, code,del,
+dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup,
+tt, var, b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label,
+legend, input, textarea, select, button,table, caption, tbody, tfoot, thead,
+tr, th, td,article, aside, canvas, details, embed,figure, figcaption, footer,
+header, hgroup,menu, nav, output, ruby, section, summary,time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-family: Montserrat, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #46424D;  color: #FFF;
+  }
+h1 {
+  text-align: center;  text-transform: uppercase;
+}
+
+h2 {
+  color: #CBC9CF;
+  }
+
+  /* -------/* main ------------------------------- */
+
+main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.new-activity, .past-activity {
+  background-color: #2B2733;  padding: 20px;
+  height: auto;    /* auto or 100%? */
+  }
+
+  /* new activities --------------------------- */
+
+.new-activity {
+    width: 60%;  height: 100vh;  /* auto or 100%? */
+  }
+
+.activity-container {
+  margin-top: 20px;
+  background-color: #46424D;
+  width: 100%;
+  height: auto;
+  padding: 20px 100px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+/* select a category */
+
+.select-category {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.category {
+  width: 30%;
+  border: 2px solid #FFF;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  }
+
+.category-img {
+  width: 30px;}
+
+/* form */
+
+form {
+  /*display: flex;  flex-direction: column; */
+  margin-top: 50px;
+}
+
+.input-accomplish {
+  width: 100%;
+}
+
+.min-sec-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.min-sec-item {
+width: 45%;
+}
+
+.input-min-sec {
+width: 100%;
+}
+
+.start-timer-btn {
+  background-color: white;
+  margin: 50px 0;
+  text-transform: uppercase;
+  padding: 10px 30px;
+  order-radius: 5px;
+  font-size: 1.1rem;
+}
+
+input {
+  padding: 10px;
+  background: #46424D;
+  border-bottom: 2px solid #FFF;
+}
+
+input,label {
+  display: block;
+  }
+
+  /* past activities * ------------------------------------ */
+
+  .past-activity {
+    width: 39.5%;
+    height: 100vh;  /* auto or 100%? */
+    }
+
+  .past-activity-message {
+    width: 80%;
+    margin: auto;
+    padding: 30px 0px;
+    text-align: center;
+  /* info ---------------------------------------- */
+  /* Main background: #2B2733
+  Text on main background: #CBC9CF
+  Header, cards: #46424D
+  Card shadow: #26222D
+  Text on header and cards: #FFF
+  Study: #B3FD78
+  Meditate: #C278FD
+  Exercise: #FD8078
+  Error: #EFB7EC */
