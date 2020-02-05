@@ -1,9 +1,9 @@
 var inputAccomplish = document.querySelector('.input-accomplish');
 var warningMessage = document.querySelector('.warning-message');
 var startButton = document.querySelector('.start');
-
-startButton.addEventListener('submit', function () {
-  if (inputAccomplish.value === undefined) {
+var heading = document.querySelector('h1');
+startButton.addEventListener('click', function () {
+  if (inputAccomplish.value === '') {
     warningMessage.style.display = 'block';
   }
 });

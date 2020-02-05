@@ -126,6 +126,7 @@ input {
   border-bottom: 2px solid #FFF;
   color: white;
   font-size: 1rem;
+  text-align: center;
 }
 
 input,
