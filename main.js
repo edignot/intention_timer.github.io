@@ -9,6 +9,7 @@ startButton.addEventListener('click', function () {
     inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
   } else {
     warningMessage.style.display = 'none';
+    inputAccomplish.style.borderBottom = '2px solid #fff';
   }
 });
 
@@ -18,7 +19,7 @@ startButton.addEventListener('click', function () {
 var inputTime = document.querySelector('.input-min-sec');
 
 inputTime.addEventListener('keypress', function () {
-  if (inputType.value < 0) {
+  if (form.inputType.value < 0) {
     alert('enter positive value!');
   }
 });
