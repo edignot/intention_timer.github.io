@@ -13,8 +13,6 @@ startButton.addEventListener('click', function () {
   }
 });
 
-
-
 // WARNING: not working!! min / sec input accepts only positive number
 var inputTime = document.querySelector('.input-min-sec');
 
@@ -23,3 +21,17 @@ inputTime.addEventListener('keypress', function () {
     alert('enter positive value!');
   }
 });
+
+// get seconds from input
+var count = 1000;
+// 1000 - one second
+var counter = setInterval(timer, 1000);
+
+function timer() {
+  count = count - 1;
+  if (count <= 0) {
+    clearInterval(counter);
+    alert('time is over!');
+  }
+    document.getElementById("timer").innerHTML=count; //
+}

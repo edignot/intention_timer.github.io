@@ -154,7 +154,6 @@ label {
 .timer {
   width: 60%;
   height: 100vh;
-  display: none;
 }
 
 .timer-wrapper {
@@ -204,7 +203,7 @@ label {
 }
 
 .timer-holder {
-  /* display: none; */
+  /*display: none;*/
 }
 
 .create-new {
@@ -239,7 +238,6 @@ label {
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
-  /*display: none;*/
 }
 
 .past-activity-color {
