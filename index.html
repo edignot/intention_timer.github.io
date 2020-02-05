@@ -55,12 +55,12 @@
           <section class="min-sec-flex">
             <div class="min-sec-item">
               <label for="accomplish">Minutes</label>
-              <input class="input-min-sec" type="text" name="minutes" id="minutes">
+              <input class="input-min-sec" type="number" name="minutes">
             </div>
             <div class="min-sec-item">
               <label for="accomplish">Seconds
               </label>
-              <input class="input-min-sec" type="text" name="seconds" id="seconds">
+              <input class="input-min-sec" type="number" name="seconds">
             </div>
           </section>
           <input class="btn start" type="button" value="Start Activity">
@@ -88,14 +88,16 @@
       <section>
         <p class="past-activity-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
       </section>
+      <section class="past-activity-log">
+        <div class="past-activity-color"></div>
+        <h4 class="past-activity-category">Category</h4>
+        <p class="past-activity-duration">Duration</p>
+        <p class="past-activity-accomplishment">Activity accomplishment</p>
+      </section>
     </section>
   </main>
 </body>
-<script src="main.js"></script></script>
+<script src="main.js"></script>
+</script>
+
 </html>
-
-
-
-<!-- <p class="warning-message">
-<img src="images/warning.svg" alt="warning" class="warning-img">
-A description is required!</p>  -->

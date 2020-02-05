@@ -5,6 +5,7 @@
   border: 0;
   vertical-align: baseline;
   font-family: Montserrat, Arial, sans-serif;
+  font-weight: 300;
   box-sizing: border-box;
 }
 
@@ -16,6 +17,7 @@ body {
 h1 {
   text-align: center;
   text-transform: uppercase;
+  margin: 20px;
 }
 
 h2 {
@@ -87,8 +89,18 @@ form {
   margin-top: 50px;
 }
 
-.input-accomplish {
-  width: 100%;
+input {
+  padding: 10px;
+  background: #46424D;
+  border-bottom: 2px solid #FFF;
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+}
+
+input,
+label {
+  display: block;
 }
 
 .min-sec-flex {
@@ -105,6 +117,10 @@ form {
   width: 100%;
 }
 
+.input-accomplish {
+  width: 100%;
+}
+
 .btn {
   background-color: white;
   margin: 50px 0;
@@ -118,20 +134,6 @@ form {
 
 .start {
   float: right;
-}
-
-input {
-  padding: 10px;
-  background: #46424D;
-  border-bottom: 2px solid #FFF;
-  color: white;
-  font-size: 1rem;
-  text-align: center;
-}
-
-input,
-label {
-  display: block;
 }
 
 /* form interactivity */
@@ -218,7 +220,6 @@ label {
 .past-activity {
   width: 39.5%;
   height: 100vh;
-  /* auto or 100%? */
 }
 
 .past-activity-message {
@@ -226,7 +227,41 @@ label {
   margin: auto;
   padding: 30px 0px;
   text-align: center;
+  display: none;
+}
 
+/* past activity log */
+.past-activity-log {
+  background-color: #46424D;
+  padding: 15px;
+  height: auto;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  /*display: none;*/
+}
+
+.past-activity-color {
+  width: 5px;
+  height: 30px;
+  background-color: #fff;
+  float: right;
+  border-radius: 5px;
+}
+
+h4 {
+  font-weight: 400;
+}
+
+.past-activity-duration {
+  text-transform: uppercase;
+}
+
+.past-activity-accomplishment {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
 
 /* info ---------------------------------------- */
 Main background: #2B2733
