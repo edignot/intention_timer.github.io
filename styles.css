@@ -24,6 +24,10 @@ h2 {
   color: #CBC9CF;
 }
 
+.hidden {
+  display: none;
+}
+
 /* main ------------------------------- */
 main {
   display: flex;
@@ -154,6 +158,7 @@ label {
 .timer {
   width: 60%;
   height: 100vh;
+  /* display: none; */
 }
 
 .timer-wrapper {

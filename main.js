@@ -1,4 +1,4 @@
-// warning when accomplishment message is empty
+//warning when accomplishment message is empty
 var inputAccomplish = document.querySelector('.input-accomplish');
 var warningMessage = document.querySelector('.warning-message');
 var startButton = document.querySelector('.start');
@@ -10,10 +10,11 @@ startButton.addEventListener('click', function () {
   } else {
     warningMessage.style.display = 'none';
     inputAccomplish.style.borderBottom = '2px solid #fff';
+    showTimer();
   }
 });
 
-// WARNING: not working!! min / sec input accepts only positive number
+//WARNING: not working!! min / sec input accepts only positive number
 var inputTime = document.querySelector('.input-min-sec');
 
 inputTime.addEventListener('keypress', function () {
@@ -22,16 +23,16 @@ inputTime.addEventListener('keypress', function () {
   }
 });
 
-// get seconds from input
-var count = 1000;
-// 1000 - one second
-var counter = setInterval(timer, 1000);
 
-function timer() {
-  count = count - 1;
-  if (count <= 0) {
-    clearInterval(counter);
-    alert('time is over!');
-  }
-    document.getElementById("timer").innerHTML=count; //
+
+
+const body = document.querySelector('body');
+const startActivityBtn = body.querySelector('.start');
+const newActivity = body.querySelector('.new-activity');
+const timer = body.querySelector('.timer');
+
+function showTimer() {
+  console.log('hi');
+  newActivity.classList.add('hidden');
+  timer.classList.remove('hidden');
 }
