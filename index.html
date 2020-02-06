@@ -21,31 +21,27 @@
         <section class="activity-categories">
           <h3>Select a category:</h3>
           <section class="select-category">
-
-            <section class="category">
-              <img class="category-img" src="images/study.svg" alt="study">
-              <img class="category-img active" src="images/study-active.svg" alt="">
+            <section class="category study">
+              <img class="category-img study-img" src="images/study.svg" alt="study">
+              <img class="category-img-active study-img-active hidden" src="images/study-active.svg" alt="">
               <p>Study</p>
             </section>
-
-            <section class="category">
-              <img class="category-img" src="images/meditate.svg" alt="meditate">
-              <img class="category-img active" src="images/meditate-active.svg" alt="">
+            <section class="category meditate">
+              <img class="category-img meditate-img" src="images/meditate.svg" alt="meditate">
+              <img class="category-img-active meditate-img-active hidden" src="images/meditate-active.svg" alt="">
               <p>Meditate</p>
             </section>
-
-            <section class="category">
-              <img class="category-img" src="images/exercise.svg" alt="exercise">
-              <img class="category-img active" src="images/exercise-active.svg" alt="">
+            <section class="category exercise">
+              <img class="category-img exercise-img" src="images/exercise.svg" alt="exercise">
+              <img class="category-img-active exercise-img-active hidden" src="images/exercise-active.svg" alt="">
               <p>Exercise</p>
             </section>
-
           </section>
         </section>
         <form class="form" action="index.html" method="post">
           <label for="accomplish">What would you like to accomplish during this time?
           </label>
-          <input class="input-accomplish" type="text" name="accomplish" id="accomplich" placeholder="Your answer">
+          <input class="input-accomplish" type="text" name="accomplish" id="accomplish" placeholder="Your answer">
           <section>
             <p class="warning-message">
               <img src="images/warning.svg" alt="warning" class="warning-img">
@@ -55,49 +51,47 @@
           <section class="min-sec-flex">
             <div class="min-sec-item">
               <label for="accomplish">Minutes</label>
-              <input class="input-min-sec" type="number" name="minutes" required>
+              <input class="input-sec" type="number" name="minutes" id="minutes">
             </div>
             <div class="min-sec-item">
               <label for="accomplish">Seconds
               </label>
-              <input class="input-min-sec" type="number" name="seconds" required>
+              <input class="seconds input-sec" type="number" name="seconds" id="seconds">
             </div>
           </section>
-          <input class="btn start" type="button" value="Start Activity">
+          <input class="btn start" type="button" value="Start Activity" onclick="getInputValue()">
         </form>
       </section>
     </section>
-
     <section class="timer hidden">
       <h2>Current Activity</h2>
       <div class="timer-wrapper">
         <div class="timer-holder">
           <p class="input-accomplish-label">Deep Breathing</p>
-          <p class="countdown-timer" id="timer">5:00</p>
+          <p class="countdown-timer">5:00</p>
           <div class="start-timer-wrapper">
             <p class="start-timer">START</p>
           </div>
-          <input class="log btn" type="text" name="" value="LOG ACTIVITY">
+          <input class="log btn" type="button" name="" value="LOG ACTIVITY">
         </div>
-        <input class="create-new btn" type="text" name="" value="CREATE A NEW ACTIVITY">
+        <input class="create-new btn hidden" type="button" name="" value="CREATE A NEW ACTIVITY">
       </div>
     </section>
-
     <section class="past-activity">
       <h2>Past Activities</h2>
-      <section>
-        <p class="past-activity-message">You haven't logged any activities yet. Complete the form to the left to get started!</p>
-      </section>
-      <section class="past-activity-log">
-        <div class="past-activity-color"></div>
-        <h4 class="past-activity-category">Category</h4>
-        <p class="past-activity-duration">Duration</p>
-        <p class="past-activity-accomplishment">Activity accomplishment</p>
+      <section class="log-container">
+        <p class="past-activity-message">You haven’t logged any activities yet. Complete the form to the left to get started!</p>
+        <section class="past-activity-log">
+          <div class="past-activity-color"></div>
+          <h4 class="past-activity-category">Category</h4>
+          <p class="past-activity-duration">Duration</p>
+          <p class="past-activity-accomplishment">Activity accomplishment</p>
+        </section>
       </section>
     </section>
   </main>
+
+  <script src="main.js" charset="utf-8"></script>
 </body>
-<script src="main.js"></script>
-</script>
 
 </html>
