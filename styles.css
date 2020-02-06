@@ -46,7 +46,6 @@ main {
 .new-activity {
   width: 60%;
   height: 100vh;
-  /* auto or 100%? */
 }
 
 .activity-container {
@@ -80,7 +79,8 @@ h3 {
   padding: 10px;
 }
 
-.category-img {
+.category-img,
+.category-img-active {
   width: 30px;
 }
 
@@ -107,6 +107,10 @@ label {
   display: block;
 }
 
+.input-accomplish {
+  width: 100%;
+}
+
 .min-sec-flex {
   display: flex;
   justify-content: space-between;
@@ -117,11 +121,8 @@ label {
   width: 45%;
 }
 
-.input-min-sec {
-  width: 100%;
-}
-
-.input-accomplish {
+.input-min,
+.input-sec {
   width: 100%;
 }
 
@@ -152,13 +153,10 @@ label {
   width: 16px;
 }
 
-
-
 /* timer ------------------------------------------------ */
 .timer {
   width: 60%;
   height: 100vh;
-  /* display: none; */
 }
 
 .timer-wrapper {
@@ -208,7 +206,7 @@ label {
 }
 
 .timer-holder {
-  /*display: none;*/
+  /* display: none; */
 }
 
 .create-new {
@@ -217,7 +215,6 @@ label {
   margin-top: 30px;
   width: 330px;
   text-align: center;
-  display: none;
 }
 
 /* past activities * ------------------------------------ */
@@ -231,7 +228,6 @@ label {
   margin: auto;
   padding: 30px 0px;
   text-align: center;
-  display: none;
 }
 
 /* past activity log */
@@ -266,13 +262,10 @@ h4 {
   font-size: 0.9rem;
 }
 
-/* info ---------------------------------------- */
-Main background: #2B2733
-Text on main background: #CBC9CF
-Header, cards: #46424D
-Card shadow: #26222D
-Text on header and cards: #FFF
-Study: #B3FD78
-Meditate: #C278FD
-Exercise: #FD8078
-Error: #EFB7EC */
+/* container for past activities log, message dissapear when activity is logged */
+.log-container {
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+  background-color: grey;
+}
