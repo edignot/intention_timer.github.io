@@ -99,12 +99,12 @@ function getTotalTime() {
   let minutesInput = parseInt(document.querySelector('.minutes').value) * 60;
 
   // if (typeof secondsInput !== "number" || typeof minutesInput !== "number") {
-if (!secondsInput || minutesInput < 0 || minutesInput == undefined) {
+if (secondsInput > 0 && minutesInput >= 0) {
+  showTimer();
+  return secondsInput + minutesInput;
+  } else {
     alert('Please input number of minutes and seconds.')
     return;
-  } else {
-    showTimer();
-    return secondsInput + minutesInput;
   }
 }
 
@@ -114,6 +114,7 @@ function countdownTimer() {
 	seconds--;
 	if (seconds == 0) {
 		clearInterval(interval);
+    body.querySelector('.start-timer').innerHTML='COMPLETE';
 	}
 	var d = new Date(seconds * 1000)
 	var timeStr = d.toISOString().slice(14, 19);
