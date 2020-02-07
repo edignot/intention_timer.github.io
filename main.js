@@ -94,17 +94,35 @@ function requiredInfoWarning() {
 // Countdown timer function
 
 
-// function getInputValue() {
-//            // Selecting the input element and get its value
-//            let secondsInput = parseInt(document.querySelector('.seconds').value);
-//
-//            alert(typeof secondsInput);
-//        }
+function getTotalTime() {
+  let secondsInput = parseInt(document.querySelector('.seconds').value);
+  let minutesInput = parseInt(document.querySelector('.minutes').value) * 60;
 
-// function timer() {
-//
-// }
+  // if (typeof secondsInput !== "number" || typeof minutesInput !== "number") {
+if (!secondsInput || minutesInput < 0 || minutesInput == undefined) {
+    alert('Please input number of minutes and seconds.')
+    return;
+  } else {
+    showTimer();
+    return secondsInput + minutesInput;
+  }
+}
+
+function countdownTimer() {
+  let seconds = getTotalTime();
+  var interval = setInterval(function() {
+	seconds--;
+	if (seconds == 0) {
+		clearInterval(interval);
+	}
+	var d = new Date(seconds * 1000)
+	var timeStr = d.toISOString().slice(14, 19);
+	body.querySelector('.countdown-timer').innerHTML=timeStr;
+  }, 1000);
+
+}
 
 
-startActivityBtn.addEventListener('click', requiredInfoWarning);
+// startActivityBtn.addEventListener('click', requiredInfoWarning);
+startActivityBtn.addEventListener('click', countdownTimer);
 categoryGroup.addEventListener('click', selectActivityHandler);

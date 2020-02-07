@@ -51,15 +51,14 @@
           <section class="min-sec-flex">
             <div class="min-sec-item">
               <label for="accomplish">Minutes</label>
-              <input class="input-sec" type="number" name="minutes" id="minutes">
+              <input class="minutes input-sec" type="number" name="minutes" id="minutes">
             </div>
             <div class="min-sec-item">
-              <label for="accomplish">Seconds
-              </label>
+              <label for="accomplish">Seconds</label>
               <input class="seconds input-sec" type="number" name="seconds" id="seconds">
             </div>
           </section>
-          <input class="btn start" type="button" value="Start Activity" onclick="getInputValue()">
+          <input class="btn start" type="button" value="Start Activity" onclick="countdownTimer()">
         </form>
       </section>
     </section>
@@ -68,7 +67,7 @@
       <div class="timer-wrapper">
         <div class="timer-holder">
           <p class="input-accomplish-label">Deep Breathing</p>
-          <p class="countdown-timer">5:00</p>
+          <p class="countdown-timer"></p>
           <div class="start-timer-wrapper">
             <p class="start-timer">START</p>
           </div>
