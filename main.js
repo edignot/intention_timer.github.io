@@ -74,6 +74,8 @@ var inputAccomplish = document.querySelector('.input-accomplish');
 var warningMessage = document.querySelector('.warning-message');
 var startButton = document.querySelector('.start');
 
+// shows timer section
+
 function showTimer() {
   newActivity.classList.add('hidden');
   timer.classList.remove('hidden');
@@ -98,14 +100,6 @@ function getInputs() {
   let secondsInput = parseInt(document.querySelector('.seconds').value);
   let minutesInput = parseInt(document.querySelector('.minutes').value) * 60;
 
-  // if (inputAccomplish.value === '') {
-  //   warningMessage.style.display = 'block';
-  //   inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
-  // } else {
-  //   warningMessage.style.display = 'none';
-  //   inputAccomplish.style.borderBottom = '2px solid #fff';
-  //   showTimer();
-  // }
   if (inputAccomplish.value.length > 0) {
     if (secondsInput > 0 && minutesInput >= 0) {
       showTimer();
