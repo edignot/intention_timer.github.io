@@ -94,17 +94,52 @@ function requiredInfoWarning() {
 // Countdown timer function
 
 
-// function getInputValue() {
-//            // Selecting the input element and get its value
-//            let secondsInput = parseInt(document.querySelector('.seconds').value);
-//
-//            alert(typeof secondsInput);
-//        }
+function getInputs() {
+  let secondsInput = parseInt(document.querySelector('.seconds').value);
+  let minutesInput = parseInt(document.querySelector('.minutes').value) * 60;
 
-// function timer() {
-//
-// }
+  // if (inputAccomplish.value === '') {
+  //   warningMessage.style.display = 'block';
+  //   inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
+  // } else {
+  //   warningMessage.style.display = 'none';
+  //   inputAccomplish.style.borderBottom = '2px solid #fff';
+  //   showTimer();
+  // }
+  if (inputAccomplish.value.length > 0) {
+    if (secondsInput > 0 && minutesInput >= 0) {
+      showTimer();
+      return secondsInput + minutesInput;
+    } else {
+      alert('Please input number of minutes and seconds.');
+    }
+  } else {
+    warningMessage.style.display = 'block';
+    inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
+    return;
+  }
+}
+
+function countdownTimer() {
+  let accomplishment = body.querySelector('.input-accomplish').value;
+  let seconds = getInputs();
+
+  body.querySelector('.input-accomplish-label').innerHTML = accomplishment;
+  var interval = setInterval(function() {
+    seconds--;
+    if (seconds == 0) {
+      clearInterval(interval);
+      alert('Time is up!')
+      body.querySelector('.start-timer').innerHTML = 'COMPLETE';
+    }
+    var d = new Date(seconds * 1000)
+    var timeStr = d.toISOString().slice(14, 19);
+    body.querySelector('.countdown-timer').innerHTML = timeStr;
+  }, 1000);
+
+}
 
 
-startActivityBtn.addEventListener('click', requiredInfoWarning);
+// startActivityBtn.addEventListener('click', requiredInfoWarning);
+startActivityBtn.addEventListener('click', countdownTimer);
 categoryGroup.addEventListener('click', selectActivityHandler);
