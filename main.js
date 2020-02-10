@@ -31,22 +31,29 @@ function clear() {
 
 // changes border and <p> to correct color for each button
 // for use in selectActivityHandler
-
 function buttonHighlight(e) {
+  const timerBorder = body.querySelector('.start-timer-wrapper');
+
+
   clear();
   if (e.target.matches('.study, .study img, .study p')) {
     study.style.borderColor = '#B3FD78';
     study.querySelector('p').style.color = '#B3FD78';
+    timerBorder.style.borderColor = '#B3FD78';
   }
   if (e.target.matches('.meditate, .meditate img, .meditate p')) {
     meditate.style.borderColor = '#C278FD';
     meditate.querySelector('p').style.color = '#C278FD';
+    timerBorder.style.borderColor = '#C278FD';
   }
   if (e.target.matches('.exercise, .exercise img, .exercise p')) {
     exercise.style.borderColor = '#FD8078';
     exercise.querySelector('p').style.color = '#FD8078';
+    timerBorder.style.borderColor = '#FD8078';
   }
 }
+
+
 
 // change button to correctly colored img, border, and text
 
@@ -67,6 +74,7 @@ function selectActivityHandler(e) {
     exercise.querySelector('.exercise-img-active').classList.remove('hidden');
   }
 }
+
 
 
 //warning when accomplishment message is empty
@@ -113,6 +121,8 @@ function getInputs() {
     return;
   }
 }
+
+// runs countdown timer
 
 function countdownTimer() {
   let accomplishment = body.querySelector('.input-accomplish').value;
