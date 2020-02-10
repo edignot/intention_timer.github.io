@@ -7,7 +7,10 @@ const meditate = body.querySelector('.meditate');
 const exercise = body.querySelector('.exercise');
 const categoryGroup = body.querySelector('.select-category');
 let activityColor = null;
+let selectedActivity = null;
 const startTimerButton = body.querySelector('.start-timer');
+const createNewBtn = body.querySelector('.create-new');
+const timerHolder = body.querySelector('.timer-holder');
 
 
 
@@ -44,18 +47,21 @@ function buttonHighlight(e) {
     study.querySelector('p').style.color = '#B3FD78';
     timerBorder.style.borderColor = '#B3FD78';
     activityColor = '#B3FD78';
+    selectedActivity = 'Study';
   }
   if (e.target.matches('.meditate, .meditate img, .meditate p')) {
     meditate.style.borderColor = '#C278FD';
     meditate.querySelector('p').style.color = '#C278FD';
     timerBorder.style.borderColor = '#C278FD';
     activityColor = '#C278FD';
+    selectedActivity = 'Meditate';
   }
   if (e.target.matches('.exercise, .exercise img, .exercise p')) {
     exercise.style.borderColor = '#FD8078';
     exercise.querySelector('p').style.color = '#FD8078';
     timerBorder.style.borderColor = '#FD8078';
     activityColor = 'FD8078';
+    selectedActivity = 'Exercise';
   }
 }
 
@@ -93,6 +99,14 @@ var startButton = document.querySelector('.start');
 function showTimer() {
   newActivity.classList.add('hidden');
   timer.classList.remove('hidden');
+}
+
+// shows new activity section
+
+function showNewActivity() {
+  newActivity.classList.remove('hidden');
+  timer.classList.add('hidden');
+
 }
 
 // Countdown timer function
@@ -160,13 +174,16 @@ function logPastActivity() {
   logContainer.insertAdjacentHTML('afterbegin',
     `<section class='past-activity-log'>
       <div class='past-activity-color'></div>
-      <h4 class='past-activity-category'></h4>
+      <h4 class='past-activity-category'>${selectedActivity}</h4>
       <p class='past-activity-duration'>${minutesInput} MIN ${secondsInput} SECONDS</p>
       <p class='past-activity-accomplishment'>${inputAccomplish.value}</p>
     </section>`);
 
     let pastActivityColor = body.querySelector('.past-activity-color');
     pastActivityColor.style.backgroundColor = activityColor;
+
+    timerHolder.classList.add('hidden');
+    createNewBtn.classList.remove('hidden');
 }
 
 
@@ -174,3 +191,4 @@ startTimerButton.addEventListener('click', countdownTimer);
 startActivityBtn.addEventListener('click', getInputs);
 categoryGroup.addEventListener('click', selectActivityHandler);
 logBtn.addEventListener('click', logPastActivity);
+createNewBtn.addEventListener('click', showNewActivity);
