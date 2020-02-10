@@ -58,7 +58,7 @@
               <input class="seconds input-sec" type="number" name="seconds" id="seconds">
             </div>
           </section>
-          <input class="btn start" type="button" value="Start Activity" onclick="countdownTimer()">
+          <input class="btn start" type="button" value="Start Activity">
         </form>
       </section>
     </section>
@@ -69,7 +69,7 @@
           <p class="input-accomplish-label">Deep Breathing</p>
           <p class="countdown-timer"></p>
           <div class="start-timer-wrapper">
-            <p class="start-timer">START</p>
+            <p class="start-timer" role="button">START</p>
           </div>
           <input class="log btn" type="button" name="" value="LOG ACTIVITY">
         </div>
@@ -78,14 +78,8 @@
     </section>
     <section class="past-activity">
       <h2>Past Activities</h2>
+      <p class="past-activity-message">You haven’t logged any activities yet. Complete the form to the left to get started!</p>
       <section class="log-container">
-        <p class="past-activity-message">You haven’t logged any activities yet. Complete the form to the left to get started!</p>
-        <section class="past-activity-log">
-          <div class="past-activity-color"></div>
-          <h4 class="past-activity-category">Category</h4>
-          <p class="past-activity-duration">Duration</p>
-          <p class="past-activity-accomplishment">Activity accomplishment</p>
-        </section>
       </section>
     </section>
   </main>

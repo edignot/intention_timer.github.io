@@ -6,6 +6,11 @@ const study = body.querySelector('.study');
 const meditate = body.querySelector('.meditate');
 const exercise = body.querySelector('.exercise');
 const categoryGroup = body.querySelector('.select-category');
+let activityColor = null;
+let selectedActivity = null;
+const startTimerButton = body.querySelector('.start-timer');
+const createNewBtn = body.querySelector('.create-new');
+const timerHolder = body.querySelector('.timer-holder');
 
 
 
@@ -31,8 +36,9 @@ function clear() {
 
 // changes border and <p> to correct color for each button
 // for use in selectActivityHandler
+const timerBorder = body.querySelector('.start-timer-wrapper');
+
 function buttonHighlight(e) {
-  const timerBorder = body.querySelector('.start-timer-wrapper');
 
 
   clear();
@@ -40,16 +46,22 @@ function buttonHighlight(e) {
     study.style.borderColor = '#B3FD78';
     study.querySelector('p').style.color = '#B3FD78';
     timerBorder.style.borderColor = '#B3FD78';
+    activityColor = '#B3FD78';
+    selectedActivity = 'Study';
   }
   if (e.target.matches('.meditate, .meditate img, .meditate p')) {
     meditate.style.borderColor = '#C278FD';
     meditate.querySelector('p').style.color = '#C278FD';
     timerBorder.style.borderColor = '#C278FD';
+    activityColor = '#C278FD';
+    selectedActivity = 'Meditate';
   }
   if (e.target.matches('.exercise, .exercise img, .exercise p')) {
     exercise.style.borderColor = '#FD8078';
     exercise.querySelector('p').style.color = '#FD8078';
     timerBorder.style.borderColor = '#FD8078';
+    activityColor = 'FD8078';
+    selectedActivity = 'Exercise';
   }
 }
 
@@ -89,29 +101,27 @@ function showTimer() {
   timer.classList.remove('hidden');
 }
 
+// shows new activity section
 
-function requiredInfoWarning() {
-  if (inputAccomplish.value === '') {
-    warningMessage.style.display = 'block';
-    inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
-  } else {
-    warningMessage.style.display = 'none';
-    inputAccomplish.style.borderBottom = '2px solid #fff';
-    showTimer();
-  }
+function showNewActivity() {
+  newActivity.classList.remove('hidden');
+  timer.classList.add('hidden');
+
 }
 
 // Countdown timer function
 
 
 function getInputs() {
-  let secondsInput = parseInt(document.querySelector('.seconds').value);
-  let minutesInput = parseInt(document.querySelector('.minutes').value) * 60;
+  let secondsInput = document.querySelector('.seconds');
+  let minutesInput = document.querySelector('.minutes');
+
 
   if (inputAccomplish.value.length > 0) {
-    if (secondsInput > 0 && minutesInput >= 0) {
+    var numbers = /^[0-9]+$/;
+    if (secondsInput.value.match(numbers) && minutesInput.value.match(numbers)) {
       showTimer();
-      return secondsInput + minutesInput;
+      return parseInt(secondsInput.value) + (parseInt(minutesInput.value) * 60);
     } else {
       alert('Please input number of minutes and seconds.');
     }
@@ -125,6 +135,7 @@ function getInputs() {
 // runs countdown timer
 
 function countdownTimer() {
+  console.log('hi');
   let accomplishment = body.querySelector('.input-accomplish').value;
   let seconds = getInputs();
 
@@ -133,17 +144,51 @@ function countdownTimer() {
     seconds--;
     if (seconds == 0) {
       clearInterval(interval);
-      alert('Time is up!')
+      // alert('Time is up!');
       body.querySelector('.start-timer').innerHTML = 'COMPLETE';
     }
-    var d = new Date(seconds * 1000)
+    var d = new Date(seconds * 1000);
     var timeStr = d.toISOString().slice(14, 19);
     body.querySelector('.countdown-timer').innerHTML = timeStr;
   }, 1000);
 
 }
 
+// past activity log cards
+const logBtn = body.querySelector('.log');
+let secondsInput = parseInt(document.querySelector('.seconds').value);
+let minutesInput = parseInt(document.querySelector('.minutes').value);
 
-// startActivityBtn.addEventListener('click', requiredInfoWarning);
-startActivityBtn.addEventListener('click', countdownTimer);
+let pastActivityColor = body.querySelector('.past-activity-color');
+
+
+
+function logPastActivity() {
+  let secondsInput = parseInt(document.querySelector('.seconds').value);
+  let minutesInput = parseInt(document.querySelector('.minutes').value);
+  const logContainer = body.querySelector('.log-container');
+
+
+  body.querySelector('.past-activity-message').style.display = 'none';
+
+  logContainer.insertAdjacentHTML('afterbegin',
+    `<section class='past-activity-log'>
+      <div class='past-activity-color'></div>
+      <h4 class='past-activity-category'>${selectedActivity}</h4>
+      <p class='past-activity-duration'>${minutesInput} MIN ${secondsInput} SECONDS</p>
+      <p class='past-activity-accomplishment'>${inputAccomplish.value}</p>
+    </section>`);
+
+    let pastActivityColor = body.querySelector('.past-activity-color');
+    pastActivityColor.style.backgroundColor = activityColor;
+
+    timerHolder.classList.add('hidden');
+    createNewBtn.classList.remove('hidden');
+}
+
+
+startTimerButton.addEventListener('click', countdownTimer);
+startActivityBtn.addEventListener('click', getInputs);
 categoryGroup.addEventListener('click', selectActivityHandler);
+logBtn.addEventListener('click', logPastActivity);
+createNewBtn.addEventListener('click', showNewActivity);
