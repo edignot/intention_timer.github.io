@@ -220,7 +220,8 @@ label {
 /* past activities * ------------------------------------ */
 .past-activity {
   width: 39.5%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 .past-activity-message {
@@ -264,8 +265,7 @@ h4 {
 
 /* container for past activities log, message dissapear when activity is logged */
 .log-container {
-  height: 100%;
+  height: auto;
   width: 100%;
   margin-top: 20px;
-  background-color: grey;
 }

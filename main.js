@@ -6,6 +6,7 @@ const study = body.querySelector('.study');
 const meditate = body.querySelector('.meditate');
 const exercise = body.querySelector('.exercise');
 const categoryGroup = body.querySelector('.select-category');
+let activityColor = null;
 
 
 
@@ -31,8 +32,9 @@ function clear() {
 
 // changes border and <p> to correct color for each button
 // for use in selectActivityHandler
+const timerBorder = body.querySelector('.start-timer-wrapper');
+
 function buttonHighlight(e) {
-  const timerBorder = body.querySelector('.start-timer-wrapper');
 
 
   clear();
@@ -40,16 +42,19 @@ function buttonHighlight(e) {
     study.style.borderColor = '#B3FD78';
     study.querySelector('p').style.color = '#B3FD78';
     timerBorder.style.borderColor = '#B3FD78';
+    activityColor = '#B3FD78';
   }
   if (e.target.matches('.meditate, .meditate img, .meditate p')) {
     meditate.style.borderColor = '#C278FD';
     meditate.querySelector('p').style.color = '#C278FD';
     timerBorder.style.borderColor = '#C278FD';
+    activityColor = '#C278FD';
   }
   if (e.target.matches('.exercise, .exercise img, .exercise p')) {
     exercise.style.borderColor = '#FD8078';
     exercise.querySelector('p').style.color = '#FD8078';
     timerBorder.style.borderColor = '#FD8078';
+    activityColor = 'FD8078';
   }
 }
 
@@ -90,16 +95,16 @@ function showTimer() {
 }
 
 
-function requiredInfoWarning() {
-  if (inputAccomplish.value === '') {
-    warningMessage.style.display = 'block';
-    inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
-  } else {
-    warningMessage.style.display = 'none';
-    inputAccomplish.style.borderBottom = '2px solid #fff';
-    showTimer();
-  }
-}
+// function requiredInfoWarning() {
+//   if (inputAccomplish.value === '') {
+//     warningMessage.style.display = 'block';
+//     inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
+//   } else {
+//     warningMessage.style.display = 'none';
+//     inputAccomplish.style.borderBottom = '2px solid #fff';
+//     showTimer();
+//   }
+// }
 
 // Countdown timer function
 
@@ -109,7 +114,7 @@ function getInputs() {
   let minutesInput = parseInt(document.querySelector('.minutes').value) * 60;
 
   if (inputAccomplish.value.length > 0) {
-    if (secondsInput > 0 && minutesInput >= 0) {
+    if (secondsInput => 0 && minutesInput >= 0) {
       showTimer();
       return secondsInput + minutesInput;
     } else {
@@ -136,14 +141,43 @@ function countdownTimer() {
       alert('Time is up!')
       body.querySelector('.start-timer').innerHTML = 'COMPLETE';
     }
-    var d = new Date(seconds * 1000)
+    var d = new Date(seconds * 1000);
     var timeStr = d.toISOString().slice(14, 19);
     body.querySelector('.countdown-timer').innerHTML = timeStr;
   }, 1000);
 
 }
 
+// past activity log cards
+const logBtn = body.querySelector('.log');
+let secondsInput = parseInt(document.querySelector('.seconds').value);
+let minutesInput = parseInt(document.querySelector('.minutes').value);
 
-// startActivityBtn.addEventListener('click', requiredInfoWarning);
+let pastActivityColor = body.querySelector('.past-activity-color');
+
+
+
+function logPastActivity() {
+  let secondsInput = parseInt(document.querySelector('.seconds').value);
+  let minutesInput = parseInt(document.querySelector('.minutes').value);
+  const logContainer = body.querySelector('.log-container');
+
+
+  body.querySelector('.past-activity-message').style.display = 'none';
+
+  logContainer.insertAdjacentHTML('afterbegin',
+    `<section class='past-activity-log'>
+    <div class='past-activity-color'></div>
+    <h4 class='past-activity-category'></h4>
+    <p class='past-activity-duration'>${minutesInput} MIN ${secondsInput} SECONDS</p>
+    <p class='past-activity-accomplishment'>${inputAccomplish.value}</p>
+    </section>`);
+    let pastActivityColor = body.querySelector('.past-activity-color');
+
+    pastActivityColor.style.backgroundColor = activityColor;
+}
+
+
 startActivityBtn.addEventListener('click', countdownTimer);
 categoryGroup.addEventListener('click', selectActivityHandler);
+logBtn.addEventListener('click', logPastActivity);
