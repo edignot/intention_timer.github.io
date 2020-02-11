@@ -39,8 +39,6 @@ function clear() {
 const timerBorder = body.querySelector('.start-timer-wrapper');
 
 function buttonHighlight(e) {
-
-
   clear();
   if (e.target.matches('.study, .study img, .study p')) {
     study.style.borderColor = '#B3FD78';
@@ -48,6 +46,7 @@ function buttonHighlight(e) {
     timerBorder.style.borderColor = '#B3FD78';
     activityColor = '#B3FD78';
     selectedActivity = 'Study';
+    study.classList.add('active');
   }
   if (e.target.matches('.meditate, .meditate img, .meditate p')) {
     meditate.style.borderColor = '#C278FD';
@@ -55,6 +54,7 @@ function buttonHighlight(e) {
     timerBorder.style.borderColor = '#C278FD';
     activityColor = '#C278FD';
     selectedActivity = 'Meditate';
+    study.classList.add('active');
   }
   if (e.target.matches('.exercise, .exercise img, .exercise p')) {
     exercise.style.borderColor = '#FD8078';
@@ -62,6 +62,7 @@ function buttonHighlight(e) {
     timerBorder.style.borderColor = '#FD8078';
     activityColor = 'FD8078';
     selectedActivity = 'Exercise';
+    study.classList.add('active');
   }
 }
 
@@ -109,28 +110,49 @@ function showNewActivity() {
 
 }
 
-// Countdown timer function
+// check for highlighted button
+let activitySelected;
+function checkHighlight() {
+  let buttonArray = [study, meditate, exercise];
+
+  for (let i = 0; i < buttonArray.length; i++) {
+    if (buttonArray[i].matches('.active')) {
+      activitySelected = true;
+    } else {
+      return;
+    }
+  }
+}
+
+// checks for inputs
 
 
 function getInputs() {
   let secondsInput = document.querySelector('.seconds');
   let minutesInput = document.querySelector('.minutes');
+  let buttonArray = [study, meditate, exercise];
 
-
-  if (inputAccomplish.value.length > 0) {
-    var numbers = /^[0-9]+$/;
-    if (secondsInput.value.match(numbers) && minutesInput.value.match(numbers)) {
-      showTimer();
-      return parseInt(secondsInput.value) + (parseInt(minutesInput.value) * 60);
-    } else {
-      alert('Please input number of minutes and seconds.');
-    }
-  } else {
-    warningMessage.style.display = 'block';
-    inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
+  if (!selectedActivity) {
     return;
+  } else {
+    console.log('hi');
+    if (inputAccomplish.value.length > 0) {
+      var numbers = /^[0-9]+$/;
+      if (secondsInput.value.match(numbers) && minutesInput.value.match(numbers)) {
+        showTimer();
+        return parseInt(secondsInput.value) + (parseInt(minutesInput.value) * 60);
+      } else {
+        alert('Please input number of minutes and seconds.');
+      }
+    }
+     else {
+      warningMessage.style.display = 'block';
+      inputAccomplish.style.borderBottom = '2px solid #EFB7EC';
+      return;
+    }
   }
 }
+
 
 // runs countdown timer
 
@@ -187,8 +209,8 @@ function logPastActivity() {
 }
 
 
-startTimerButton.addEventListener('click', countdownTimer);
 startActivityBtn.addEventListener('click', getInputs);
 categoryGroup.addEventListener('click', selectActivityHandler);
+startTimerButton.addEventListener('click', countdownTimer);
 logBtn.addEventListener('click', logPastActivity);
 createNewBtn.addEventListener('click', showNewActivity);
