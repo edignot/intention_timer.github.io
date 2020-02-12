@@ -174,7 +174,6 @@ function countdownTimer() {
     if (seconds === 0) {
       clearInterval(interval);
       body.querySelector('.start-timer').innerHTML = 'COMPLETE';
-      alert('Time is up!');
     }
     var d = new Date(seconds * 1000);
     var timeStr = d.toISOString().slice(14, 19);
