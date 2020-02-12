@@ -100,6 +100,16 @@ var startButton = document.querySelector('.start');
 function showTimer() {
   newActivity.classList.add('hidden');
   timer.classList.remove('hidden');
+  timerHolder.classList.remove('hidden');
+  createNewBtn.classList.add('hidden');
+  let secondsInput = document.querySelector('.seconds').value;
+  let minutesInput = document.querySelector('.minutes').value;
+  if (secondsInput < 10) {
+    body.querySelector('.countdown-timer').innerHTML = `0${minutesInput}:0${secondsInput}`;
+  } else {
+    body.querySelector('.countdown-timer').innerHTML = `${minutesInput}:${secondsInput}`;
+  }
+  body.querySelector('.start-timer').innerHTML = `START`;
 }
 
 // shows new activity section
@@ -107,7 +117,6 @@ function showTimer() {
 function showNewActivity() {
   newActivity.classList.remove('hidden');
   timer.classList.add('hidden');
-
 }
 
 // check for highlighted button
@@ -133,9 +142,8 @@ function getInputs() {
   let buttonArray = [study, meditate, exercise];
 
   if (!selectedActivity) {
-    return;
+    alert('Please select an activity category.');
   } else {
-    console.log('hi');
     if (inputAccomplish.value.length > 0) {
       var numbers = /^[0-9]+$/;
       if (secondsInput.value.match(numbers) && minutesInput.value.match(numbers)) {
@@ -157,17 +165,16 @@ function getInputs() {
 // runs countdown timer
 
 function countdownTimer() {
-  console.log('hi');
   let accomplishment = body.querySelector('.input-accomplish').value;
   let seconds = getInputs();
 
   body.querySelector('.input-accomplish-label').innerHTML = accomplishment;
   var interval = setInterval(function() {
     seconds--;
-    if (seconds == 0) {
+    if (seconds === 0) {
       clearInterval(interval);
-      // alert('Time is up!');
       body.querySelector('.start-timer').innerHTML = 'COMPLETE';
+      alert('Time is up!');
     }
     var d = new Date(seconds * 1000);
     var timeStr = d.toISOString().slice(14, 19);
