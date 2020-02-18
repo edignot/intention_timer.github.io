@@ -1,4 +1,4 @@
-/* basic setup ---------------------------*/
+/* basic setup */
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +28,7 @@ h2 {
   display: none;
 }
 
-/* main ------------------------------- */
+/* main */
 main {
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,7 @@ main {
   padding: 20px;
 }
 
-/* new activities --------------------------- */
+/* new activities */
 .new-activity {
   width: 60%;
   height: 100vh;
@@ -84,10 +84,6 @@ h3 {
   width: 30px;
 }
 
-/* .active {
-  display: none;
-} */
-
 /* form */
 form {
   margin-top: 50px;
@@ -127,7 +123,8 @@ label {
 }
 
 .btn {
-  background-color: white;
+  border: 0;
+  background-color: #dedede;
   margin: 50px 0;
   text-transform: uppercase;
   padding: 10px 30px;
@@ -135,6 +132,11 @@ label {
   font-size: 1.1rem;
   color: #2B2733;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #fff;
+  transition: background-color 0.5s;
 }
 
 .start {
@@ -153,7 +155,7 @@ label {
   width: 16px;
 }
 
-/* timer ------------------------------------------------ */
+/* timer */
 .timer {
   width: 60%;
   height: 100vh;
@@ -206,10 +208,6 @@ label {
   text-align: center;
 }
 
-.timer-holder {
-  /* display: none; */
-}
-
 .create-new {
   float: none;
   margin: auto;
@@ -218,7 +216,7 @@ label {
   text-align: center;
 }
 
-/* past activities * ------------------------------------ */
+/* past activities */
 .past-activity {
   width: 39.5%;
   min-height: 100vh;
@@ -264,7 +262,7 @@ h4 {
   font-size: 0.9rem;
 }
 
-/* container for past activities log, message dissapear when activity is logged */
+/* container for past activities */
 .log-container {
   height: auto;
   width: 100%;
