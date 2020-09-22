@@ -13,5 +13,5 @@ This is a simple time tracking application for logging different types of activi
 - JavaScript
 
 ### Contributors
-[Edita Ignot](https://github.com/edignot)
-[Elliot Mackinnon](https://github.com/emackinnon1)
+* [Edita Ignot](https://github.com/edignot)
+* [Elliot Mackinnon](https://github.com/emackinnon1)
